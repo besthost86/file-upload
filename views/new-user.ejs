@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>fILE uPLOAD</title>
+    <script src="/scripts/preview.js" defer></script>
+    <style>
+        #preview {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <form action="/profile" method="POST" enctype="multipart/form-data">
@@ -14,5 +20,6 @@
         <input name="image" id="file-picker" type="file" required >
         <button type="submit">Save User</button>
     </form>
+    <img id="preview"/>
 </body>
 </html>

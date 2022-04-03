@@ -1,13 +1,9 @@
 import { MongoClient } from 'mongodb'
 
-const client = new MongoClient(process.env.MONGO_URI)
-const PORT = process.env.PORT || 3000;
+const client =  await new MongoClient(process.env.MONGO_URI).connect()
+export default client.db('files');
 
-export const connection =  (app)=> {
-    client.connect(()=> {
-        app.listen(PORT || 3000, ()=>{
-            console.log('listening....',PORT );
-        }) 
-    });
 
-}
+
+
+

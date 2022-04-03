@@ -1,14 +1,14 @@
 import multer from 'multer'
 import { resolve } from 'path';
-import randomBytes from 'randombytes'
+import randomstring from 'randomstring'
 
 
 const storageConfig = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, resolve('images'));
+        cb(null, 'images');
     },
     filename: (req, file, cb) => {
-        cb(null, `${Date.now()}-${randomBytes(16)}-${file.originalname}`)
+        cb(null, `${Date.now()}-${randomstring.generate()}-${file.originalname}`)
     }
 });
 

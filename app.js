@@ -1,7 +1,9 @@
 import 'dotenv/config'
-import app from './utils/config.js'
+import config, { app } from './utils/config.js'
 import mainRoutes from './routes/mainRoutes.js'
-import {connection} from './utils/mongodb.js'
+import express from 'express'
 
+app.use(express.static('public'));
+app.use('/images',express.static('images'));
 app.use(mainRoutes)
-connection(app);
+config();
